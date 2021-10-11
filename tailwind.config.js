@@ -8,13 +8,22 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'playfair': "chennai,sans-serif",
-        'hero': "hero-new,sans-serif",
+        'montserrat': 'Montserrat, sans-serif',
+        'playfair': 'Playfair Display, serif'
       },
       spacing: {
-        "100px":"100px",
-        "140px":"140px",
-        "300px":"300px"
+        "10px": "10px",
+        "30px": "30px",
+        "50px": "50px",
+        "60px": "60px",
+        "100px": "100px",
+        "140px": "140px",
+        "300px": "300px",
+        "50vh": "50vh",
+        "98vh": "98vh",
+        "100vw": "100vw",
+        "100vh": "100vh",
+        "500px": "500px"
       },
       fontSize: {
         '10px': "10px",
@@ -30,6 +39,9 @@ module.exports = {
         '48px': "48px",
         '60px': "60px",
         '72px': "72px",
+      },
+      scale: {
+        "flip": "-1"
       },
       colors: {
         klee_purple: {
@@ -54,9 +66,7 @@ module.exports = {
     },
   },
   variants: {
-    extend: {
-
-    },
+    extend: {},
   },
   plugins: [],
 }

@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {PreHomeComponent} from "./components/pre-home/pre-home.component";
-import {HomeComponent} from "./components/base/home/home.component";
+import {HomeComponent} from "./home/home.component";
 import {ComparisonComponent} from "./components/comparison/comparison.component";
 import { ConfigComparisonComponent } from './components/config-comparison/config-comparison.component';
 import {ConfigVariationsComparisonComponent} from "./components/config-variations-comparison/config-variations-comparison.component";
@@ -28,7 +28,8 @@ const routes: Routes = [
    *
    * ** 404 not found page
    */
-  { path: '', component: PreHomeComponent },
+  { path: '', component: HomeComponent },
+  // { path: '', component: PreHomeComponent },
   { path: 'pre-home', component: PreHomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'comparison', component: ComparisonComponent },

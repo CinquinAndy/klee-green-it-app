@@ -3,10 +3,6 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-*{
-  font-family: 'Montserrat', sans-serif;
-}
-
 h1,h2,h3,h4,h5,h6{
   font-family: 'Playfair Display', serif;
 }
@@ -16,7 +12,7 @@ h1,h2,h3,h4,h5,h6{
   list-style: none;
   text-decoration: none;
   transition: all ease-in-out .3s;
-  font-family: hero-new, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 html {
