@@ -6,9 +6,6 @@ module.exports = {
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
-  },
-  variants: {
     extend: {
       fontFamily: {
         'playfair': "chennai,sans-serif",
@@ -16,7 +13,8 @@ module.exports = {
       },
       spacing: {
         "100px":"100px",
-        "140px":"140px"
+        "140px":"140px",
+        "300px":"300px"
       },
       fontSize: {
         '10px': "10px",
@@ -53,6 +51,11 @@ module.exports = {
           900: "#080708",
         }
       }
+    },
+  },
+  variants: {
+    extend: {
+
     },
   },
   plugins: [],
