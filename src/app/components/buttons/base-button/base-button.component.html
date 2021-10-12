@@ -1,1 +1,2 @@
-<button [routerLink]="link" class="bg-klee_yellow-500 uppercase text-12px py-10px w-300px">{{content}}</button>
+<button *ngIf="!alternative; else alternativeButton"  [routerLink]="link" class="bg-klee_yellow-500 uppercase text-12px py-10px w-300px">{{content}}</button>
+<ng-template #alternativeButton><button class="bg-klee_purple-500 uppercase text-12px py-10px w-300px text-white">{{content}}</button></ng-template>
