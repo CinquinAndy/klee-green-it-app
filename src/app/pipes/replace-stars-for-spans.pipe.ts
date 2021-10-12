@@ -13,6 +13,6 @@ export class ReplaceStarsForSpansPipe implements PipeTransform {
    * @return any
    */
   transform(value: string): any {
-    return value.replace(/(\*)(\w+|\w'\w+)(\*)/g, "<span class='font-playfair italic font-black leading-tight'>$2</span>");
+    return value.replace(/(\*)(\w+|\w[']\w+|\?)(\*)/g, "<span class='font-playfair italic font-black leading-tight'>$2</span>");
   }
 }

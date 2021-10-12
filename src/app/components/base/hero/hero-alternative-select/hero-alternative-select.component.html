@@ -1,0 +1,24 @@
+<form [formGroup]="form" class="w-full flex p-140px h-98vh"
+      id="formSelect" name="formSelect">
+  <fieldset class="w-full flex h-full">
+    <div class="w-1/2 flex justify-center items-center">
+      <div class="w-2/3">
+        <div class="pb-60px">
+          <h1 class="font-montserrat text-60px font-bold leading-tight" [innerHTML]="title"></h1>
+        </div>
+        <div>
+          <div class="flex w-full flex-col items-start justify-evenly space-y-30px">
+            <button (click)="submit()" class="bg-klee_yellow-500 uppercase text-12px py-10px w-300px">Charger les données</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w-1/2 flex justify-center items-center relative">
+      <img [ngClass]="(alternative ? 'w-full opacity-10' : 'w-full opacity-100')" src="./assets/Illustration_klee.png"
+           alt="Illustration Klee Analyze data">
+      <div class="w-full h-full absolute top-0 left-0 flex justify-center items-center">
+
+      </div>
+    </div>
+  </fieldset>
+</form>

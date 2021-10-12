@@ -28,7 +28,7 @@ const routes: Routes = [
    *
    * ** 404 not found page
    */
-  { path: '', component: HomeComponent },
+  { path: '', component: PreHomeComponent },
   // { path: '', component: PreHomeComponent },
   { path: 'pre-home', component: PreHomeComponent },
   { path: 'home', component: HomeComponent },

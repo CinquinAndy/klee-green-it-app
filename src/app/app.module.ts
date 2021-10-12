@@ -19,6 +19,8 @@ import { MeasureComponent } from './components/measure/measure.component';
 import { ResultsMeasureComponent } from './components/results-measure/results-measure.component';
 import { ConfigVariationsComparisonComponent } from './components/config-variations-comparison/config-variations-comparison.component';
 import { ReplaceStarsForSpansPipe } from './pipes/replace-stars-for-spans.pipe';
+import { HeroAlternativeSelectComponent } from './components/base/hero/hero-alternative-select/hero-alternative-select.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -38,12 +40,14 @@ import { ReplaceStarsForSpansPipe } from './pipes/replace-stars-for-spans.pipe';
     MeasureComponent,
     ResultsMeasureComponent,
     ConfigVariationsComparisonComponent,
-    ReplaceStarsForSpansPipe
+    ReplaceStarsForSpansPipe,
+    HeroAlternativeSelectComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

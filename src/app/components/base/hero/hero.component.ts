@@ -8,13 +8,12 @@ import {Component, Input, OnInit} from '@angular/core';
 export class HeroComponent implements OnInit {
 
   @Input() title: string = "";
+  @Input() alternative: boolean = false;
 
   constructor() {
   }
 
   ngOnInit(): void {
-    // Replace stars englobing a word
-    // this.title = this.title.replace(/(\*)(\w+|\w'\w+)(\*)/g, "<span class='font-playfair italic font-black'>$2</span>");
   }
 
 }
