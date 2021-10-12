@@ -6,20 +6,22 @@ import {Application} from "../../interfaces/application";
 import {HandleError, HttpErrorHandler} from "../http-error-handler.service";
 
 @Injectable()
-export class GetListAppService {
-  apiApplicationsUrl= 'http://localhost:8888/app/name'
+export class PostAppNameService {
+  apiApplicationsUrl= 'http://localhost:8888/app/add/name/'
   private handleError: HandleError;
 
   constructor(
     private http: HttpClient,
     httpErrorHandler: HttpErrorHandler
   ) {
-    this.handleError = httpErrorHandler.createHandleError('GetListAppService');
+    this.handleError = httpErrorHandler.createHandleError('PostAppNameService');
   }
 
   /** GET heroes from the server */
-  getApplicationList(): Observable<Application[]> {
-    return this.http.get<Application[]>(this.apiApplicationsUrl)
+  postApplicationName(newName:string): Observable<string> {
+    console.log('postApplicationName observable')
+    // @ts-ignore
+    return this.http.post<string>(this.apiApplicationsUrl,{name:newName})
       .pipe(
         catchError(this.handleError('getApplicationList', []))
       );

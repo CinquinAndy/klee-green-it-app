@@ -24,6 +24,7 @@ import { HeroAlternativeSelectComponent } from './components/base/hero/hero-alte
 import {ReactiveFormsModule} from "@angular/forms";
 import {GetListAppService} from "./services/CallAPI/get-list-app.service";
 import {HttpErrorHandler} from "./services/http-error-handler.service";
+import {PostAppNameService} from "./services/CallAPI/post-app-name.service";
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import {HttpErrorHandler} from "./services/http-error-handler.service";
     ],
   providers: [
     HttpErrorHandler,
-    GetListAppService
+    GetListAppService,
+    PostAppNameService
   ],
   bootstrap: [AppComponent]
 })
