@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {PreHomeComponent} from "./components/pre-home/pre-home.component";
-import {HomeComponent} from "./home/home.component";
+import {HomeComponent} from "./components/home/home.component";
 import {ComparisonComponent} from "./components/comparison/comparison.component";
 import { ConfigComparisonComponent } from './components/config-comparison/config-comparison.component';
 import {ConfigVariationsComparisonComponent} from "./components/config-variations-comparison/config-variations-comparison.component";

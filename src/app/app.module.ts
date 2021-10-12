@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,7 +9,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { BaseButtonComponent } from './components/buttons/base-button/base-button.component';
 import { PreHomeComponent } from './components/pre-home/pre-home.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './components/home/home.component';
 import { ErrorNotFoundComponent } from './components/error-not-found/error-not-found.component';
 import { ComparisonComponent } from './components/comparison/comparison.component';
 import { LoaderComponent } from './components/loader/loader.component';
@@ -21,6 +22,8 @@ import { ConfigVariationsComparisonComponent } from './components/config-variati
 import { ReplaceStarsForSpansPipe } from './pipes/replace-stars-for-spans.pipe';
 import { HeroAlternativeSelectComponent } from './components/base/hero/hero-alternative-select/hero-alternative-select.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {GetListAppService} from "./services/CallAPI/get-list-app.service";
+import {HttpErrorHandler} from "./services/http-error-handler.service";
 
 @NgModule({
   declarations: [
@@ -46,9 +49,13 @@ import {ReactiveFormsModule} from "@angular/forms";
     imports: [
         BrowserModule,
         AppRoutingModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpClientModule
     ],
-  providers: [],
+  providers: [
+    HttpErrorHandler,
+    GetListAppService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

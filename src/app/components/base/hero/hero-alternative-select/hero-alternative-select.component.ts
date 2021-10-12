@@ -1,5 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {FormBuilder,FormGroup,Validators} from '@angular/forms'
+import {Component, Input, OnInit, NgIterable, NgModule} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms'
+import {Application} from "../../../../interfaces/application";
+import {CommonModule} from "@angular/common";
+import {GetListAppService} from "../../../../services/CallAPI/get-list-app.service";
+
+import {HttpErrorHandler, HandleError} from "../../../../services/http-error-handler.service";
+
 @Component({
   selector: 'app-hero-alternative-select',
   templateUrl: './hero-alternative-select.component.html',
@@ -8,22 +14,29 @@ import {FormBuilder,FormGroup,Validators} from '@angular/forms'
 export class HeroAlternativeSelectComponent implements OnInit {
   @Input() title: string = "";
   @Input() alternative: boolean = false;
-  form : FormGroup;
+  applicationsList: Array<Application> = [];
+  form: FormGroup;
 
   submit() {
     // todo submit
-    console.log(this.form.status==="VALID")
-    console.log(this.form.status==="INVALID")
+    console.log(this.form.status === "VALID")
+    console.log(this.form.status === "INVALID")
     console.log(this.form.value)
     //  todo call api
   }
-  constructor(private fb: FormBuilder) {
+
+  constructor(private fb: FormBuilder, private getListAppServiceConstruc: GetListAppService) {
     this.form = this.fb.group({
-      select: ['',[Validators.required]]
+      selectNameApp: ['', [Validators.required]]
     })
   }
 
   ngOnInit(): void {
+    this.getListApplicationsService();
   }
 
+  getListApplicationsService(): void {
+    this.getListAppServiceConstruc.getApplicationList()
+      .subscribe(applications => (this.applicationsList = applications))
+  }
 }

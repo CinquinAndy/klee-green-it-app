@@ -8,7 +8,9 @@
         </div>
         <div>
           <div class="flex w-full flex-col items-start justify-evenly space-y-30px">
-            <button (click)="submit()" class="bg-klee_yellow-500 uppercase text-12px py-10px w-300px">Charger les données</button>
+            <button (click)="submit()" class="bg-klee_yellow-500 uppercase text-12px py-10px w-300px">Charger les
+              données
+            </button>
           </div>
         </div>
       </div>
@@ -17,7 +19,16 @@
       <img [ngClass]="(alternative ? 'w-full opacity-10' : 'w-full opacity-100')" src="./assets/Illustration_klee.png"
            alt="Illustration Klee Analyze data">
       <div class="w-full h-full absolute top-0 left-0 flex justify-center items-center">
-
+        <div class="flex flex-col">
+          <label for="applications" class="text-right text-klee_purple-500 uppercase">Sélection de l'application</label>
+          <input formControlName="selectNameApp" autocomplete="off" placeholder="écris ici pour ajouter une application"
+                 class="select-css-custom w-250px sm:w-500px h-60px bg-klee_gray-50 border border-klee_purple-500
+                  px-8 my-2 text-klee_grey-500 focus:ring-0 focus:outline-none"
+                 list="applications_list" id="applications" name="applications"/>
+          <datalist id="applications_list">
+            <option *ngFor="let application of applicationsList" [value]="application.name"></option>
+          </datalist>
+        </div>
       </div>
     </div>
   </fieldset>
