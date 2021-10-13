@@ -5,6 +5,7 @@ import { catchError } from 'rxjs/operators';
 import {Application} from "../../interfaces/application";
 import {HandleError, HttpErrorHandler} from "../http-error-handler.service";
 
+
 @Injectable()
 export class GetListAppService {
   apiApplicationsUrl= 'http://localhost:8888/app/name'
