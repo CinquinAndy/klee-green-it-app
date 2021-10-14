@@ -45,7 +45,7 @@ export class ConfigReferencesComponent implements OnInit {
           // if it's the last data, then set the local tables to the new data
           if (table.table_name === this.tables[this.tables.length - 1].table_name) {
             this.tables = this.store.getTables();
-            // this.loading = false;
+            this.loading = false;
           }
         })
     }

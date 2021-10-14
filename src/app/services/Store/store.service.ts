@@ -9,6 +9,7 @@ export class StoreService {
   private applications: Array<Application> = [];
   private selectedApplications: Application = {id: 0, name: ""};
   private tables: Array<Tables> = [];
+  private references: Array<object> = [];
 
   // Define methos to add / set / get / clear data for applications
   // ******************************** Applications *******************************
@@ -60,32 +61,49 @@ export class StoreService {
   clearTables(): void {
     this.tables = [];
   }
+
   // ******************************** Mesured Data *******************************
-  setData(nameTable:string,data:object): Tables | undefined{
+  setData(nameTable: string, data: object): Tables | undefined {
     for (const table of this.tables) {
-      if(table.table_name === nameTable){
+      if (table.table_name === nameTable) {
         table.data = JSON.parse(JSON.stringify(data));
+        // @ts-ignore
+        table['unite'] = data[0]['unite'];
         return table;
       }
     }
     return undefined;
   }
 
-  getData(nameTable:string): object | undefined{
+  getData(nameTable: string): object | undefined {
     for (const table of this.tables) {
-      if(table.table_name === nameTable){
+      if (table.table_name === nameTable) {
         return table.data;
       }
     }
     return undefined;
   }
 
-  clearData(nameTable:string) : void{
+  clearData(nameTable: string): void {
     for (const table of this.tables) {
-      if(table.table_name === nameTable){
+      if (table.table_name === nameTable) {
         table.data = {};
       }
     }
+  }
+
+  // ******************************** References Data *******************************
+  setReferences(references: object): object {
+    this.references = JSON.parse(JSON.stringify(references));
+    return references;
+  }
+
+  getReferences(): Array<object> {
+    return this.references;
+  }
+
+  clearReferences(): void {
+    this.references = [];
   }
 
   constructor() {
