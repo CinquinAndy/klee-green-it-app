@@ -1,0 +1,20 @@
+<div class="z-50 absolute w-100vw h-full pointer-events-none">
+  <div class="w-full h-full relative">
+    <div class="absolute top-0 left-0">
+      <img class="h-500px w-500px transform scale-x-flip opacity-10" src="../../../../assets/svg/corner.svg"
+           alt="corner image">
+    </div>
+    <div class="absolute top-0 right-0 p-30px">
+      <div class="flex" *ngIf="notPreHome">
+        <a class="pointer-events-auto pr-10px" routerLink="/">
+          <img class="h-50px w-50px transform pointer-events-auto" src="../../../../assets/svg/reset.svg"
+               alt="corner image">
+        </a>
+        <a class="pointer-events-auto" routerLink="/home">
+          <img class="h-50px w-50px transform pointer-events-auto" src="../../../../assets/svg/house.svg"
+               alt="corner image">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,14 +1,14 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {PreHomeComponent} from "./components/pre-home/pre-home.component";
-import {HomeComponent} from "./components/home/home.component";
-import {ComparisonComponent} from "./components/comparison/comparison.component";
-import { ConfigComparisonComponent } from './components/config-comparison/config-comparison.component';
-import {ConfigVariationsComparisonComponent} from "./components/config-variations-comparison/config-variations-comparison.component";
-import {ResultsComponent} from "./components/results/results.component";
-import {ConfigReferencesComponent} from "./components/config-references/config-references.component";
-import {MeasureComponent} from "./components/measure/measure.component";
-import {ResultsMeasureComponent} from "./components/results-measure/results-measure.component";
+import {PreHomeComponent} from "./components/landing_part/pre-home/pre-home.component";
+import {HomeComponent} from "./components/landing_part/home/home.component";
+import {ComparisonComponent} from "./components/comparison_part/comparison/comparison.component";
+import { ConfigComparisonComponent } from './components/comparison_part/config-comparison/config-comparison.component';
+import {ConfigVariationsComparisonComponent} from "./components/comparison_part/config-variations-comparison/config-variations-comparison.component";
+import {ResultsComponent} from "./components/results_part/results/results.component";
+import {ConfigReferencesComponent} from "./components/references_part/config-references/config-references.component";
+import {MeasureComponent} from "./components/measures_part/measure/measure.component";
+import {ResultsMeasureComponent} from "./components/results_part/results-measure/results-measure.component";
 
 const routes: Routes = [
   /**

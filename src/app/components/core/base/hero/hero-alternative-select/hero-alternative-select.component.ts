@@ -1,14 +1,14 @@
 import {Component, Input, OnInit, NgIterable, NgModule} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms'
-import {Application} from "../../../../interfaces/application";
+import {Application} from "../../../../../interfaces/application";
 import {CommonModule} from "@angular/common";
-import {GetListAppService} from "../../../../services/CallAPI/get-list-app.service";
-import {PostAppNameService} from "../../../../services/CallAPI/post-app-name.service";
+import {GetListAppService} from "../../../../../services/CallAPI/get-list-app.service";
+import {PostAppNameService} from "../../../../../services/CallAPI/post-app-name.service";
 
-import {HttpErrorHandler, HandleError} from "../../../../services/http-error-handler.service";
+import {HttpErrorHandler, HandleError} from "../../../../../services/http-error-handler.service";
 import application from "@angular-devkit/build-angular/src/babel/presets/application";
 import {ActivatedRoute, NavigationExtras, Router} from "@angular/router";
-import {StoreService} from "../../../../services/Store/store.service";
+import {StoreService} from "../../../../../services/Store/store.service";
 
 @Component({
   selector: 'app-hero-alternative-select',

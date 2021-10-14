@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {StoreService} from "../../../services/Store/store.service";
+import {StoreService} from "../../../../services/Store/store.service";
 
 @Component({
   selector: 'app-hero',
@@ -10,6 +10,7 @@ export class HeroComponent implements OnInit {
 
   @Input() title: string = "";
   @Input() alternative: boolean = false;
+  @Input() homeTemplate : boolean = false;
 
   constructor(private store : StoreService) {
   }
@@ -17,6 +18,4 @@ export class HeroComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.store.getSelectedApplications());
   }
-
-
 }
