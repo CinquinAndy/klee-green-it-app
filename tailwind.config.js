@@ -64,6 +64,9 @@ module.exports = {
           800: "#1c1b1d",
           900: "#080708",
         }
+      },
+      animation: {
+        'spin-slow':'spin 1s linear infinite reverse'
       }
     },
   },

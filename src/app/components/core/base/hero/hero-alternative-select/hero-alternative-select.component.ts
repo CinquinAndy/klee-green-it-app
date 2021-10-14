@@ -49,7 +49,10 @@ export class HeroAlternativeSelectComponent implements OnInit {
 
   getListApplicationsService(): void {
     this.getListAppServiceConstruc.getApplicationList()
-      .subscribe(applications => (this.applicationsList = applications))
+      .subscribe(applications => {
+        this.applicationsList = applications;
+        this.store.setApplications(applications);
+      })
   }
 
   postApplicationService(newAppName: string): void {

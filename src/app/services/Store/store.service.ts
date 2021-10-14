@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Application} from "../../interfaces/application";
+import {Tables} from "../../interfaces/tables";
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ import {Application} from "../../interfaces/application";
 export class StoreService {
   private applications: Array<Application> = [];
   private selectedApplications: Application = {id: 0, name: ""};
-
+  private tables: Array<Tables> = [];
 
   // Define methos to add / set / get / clear data for applications
   // ******************************** Applications *******************************
@@ -40,6 +41,51 @@ export class StoreService {
   clearSelectedApplications(): Application {
     this.selectedApplications = {id: 0, name: ""}
     return this.selectedApplications;
+  }
+
+  // ******************************** List of Mesured Data *******************************
+  addTable(table: Tables): void {
+    this.tables.push(table);
+  }
+
+  getTables(): Array<Tables> {
+    return this.tables;
+  }
+
+  setTables(tables: Array<Tables>): Array<Tables> {
+    this.tables = JSON.parse(JSON.stringify(tables));
+    return this.tables;
+  }
+
+  clearTables(): void {
+    this.tables = [];
+  }
+  // ******************************** Mesured Data *******************************
+  setData(nameTable:string,data:object): Tables | undefined{
+    for (const table of this.tables) {
+      if(table.table_name === nameTable){
+        table.data = JSON.parse(JSON.stringify(data));
+        return table;
+      }
+    }
+    return undefined;
+  }
+
+  getData(nameTable:string): object | undefined{
+    for (const table of this.tables) {
+      if(table.table_name === nameTable){
+        return table.data;
+      }
+    }
+    return undefined;
+  }
+
+  clearData(nameTable:string) : void{
+    for (const table of this.tables) {
+      if(table.table_name === nameTable){
+        table.data = {};
+      }
+    }
   }
 
   constructor() {
