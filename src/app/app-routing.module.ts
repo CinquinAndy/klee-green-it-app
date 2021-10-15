@@ -9,6 +9,7 @@ import {ResultsComponent} from "./components/results_part/results/results.compon
 import {ConfigReferencesComponent} from "./components/references_part/config-references/config-references.component";
 import {MeasureComponent} from "./components/measures_part/measure/measure.component";
 import {ResultsMeasureComponent} from "./components/results_part/results-measure/results-measure.component";
+import {FormConfigPeriodsComponent} from "./components/core/base/form-config-periods/form-config-periods.component";
 
 const routes: Routes = [
   /**
@@ -16,11 +17,12 @@ const routes: Routes = [
    * home : page to select the mode that we will use
    * first mode ->
    *    comparison : page to select and load data for an app
-   *    config-comparison : page to configure periods
+   *    form-config-periods : page to config periods to compare
    *    config-variations-comparison : page to configure variations
    *    results : page to display results
    * second mode ->
    *    config-references : page to config all values that we want to compare
+   *    form-config-periods : page to config periods to compare
    *    results : page to display results
    * third mode ->
    *    measure : page to start chronometer to measure precise data in a short timing
@@ -38,6 +40,7 @@ const routes: Routes = [
   { path: 'config-references', component: ConfigReferencesComponent },
   { path: 'measure', component: MeasureComponent },
   { path: 'results-measure', component: ResultsMeasureComponent },
+  { path: 'config-periods', component: FormConfigPeriodsComponent },
   { path: '**', component: ResultsMeasureComponent },
 ];
 

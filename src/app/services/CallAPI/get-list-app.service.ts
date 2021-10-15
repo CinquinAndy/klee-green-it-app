@@ -18,7 +18,7 @@ export class GetListAppService {
     this.handleError = httpErrorHandler.createHandleError('GetListAppService');
   }
 
-  /** GET heroes from the server */
+  /** GET Application from the server */
   getApplicationList(): Observable<Application[]> {
     return this.http.get<Application[]>(this.apiApplicationsUrl)
       .pipe(

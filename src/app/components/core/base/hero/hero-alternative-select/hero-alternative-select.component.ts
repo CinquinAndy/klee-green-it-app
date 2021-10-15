@@ -21,22 +21,13 @@ export class HeroAlternativeSelectComponent implements OnInit {
   applicationsList: Array<Application> = [];
   form: FormGroup;
 
-  submit() {
-    if (!this.applicationsList.find(elem => elem.name === this.form.value.selectNameApp)) {
-      this.postApplicationService(this.form.value.selectNameApp);
-    } else {
-      this.store.setApplications(this.applicationsList);
-      this.store.setSelectedApplications({id: 0, name: this.form.value.selectNameApp});
-    }
-    this.router.navigate(['/home'], {relativeTo: this.route});
-  }
 
   constructor(private fb: FormBuilder,
               private getListAppServiceConstruc: GetListAppService,
               private postApplicationNameServiceConstruc: PostAppNameService,
               private route: ActivatedRoute,
               private router: Router,
-              private store : StoreService
+              private store: StoreService
   ) {
     this.form = this.fb.group({
       selectNameApp: ['', [Validators.required]]
@@ -47,13 +38,26 @@ export class HeroAlternativeSelectComponent implements OnInit {
     this.getListApplicationsService();
   }
 
+  submit() {
+    if (!this.applicationsList.find(elem => elem.name === this.form.value.selectNameApp)) {
+      this.postApplicationService(this.form.value.selectNameApp);
+    } else {
+      this.store.setApplications(this.applicationsList);
+      this.store.setSelectedApplications({id: 0, name: this.form.value.selectNameApp});
+    }
+    this.router.navigate(['/home'], {relativeTo: this.route});
+  }
+
+
   getListApplicationsService(): void {
     this.getListAppServiceConstruc.getApplicationList()
-      .subscribe(applications => (this.applicationsList = applications))
+      .subscribe(applications => {
+        this.applicationsList = applications;
+        this.store.setApplications(applications);
+      })
   }
 
   postApplicationService(newAppName: string): void {
-    console.log(newAppName)
     this.postApplicationNameServiceConstruc.postApplicationName(newAppName)
       .subscribe(app => {
         this.applicationsList.push({id: 0, name: newAppName});

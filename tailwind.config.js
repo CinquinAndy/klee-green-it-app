@@ -18,7 +18,12 @@ module.exports = {
         "60px": "60px",
         "100px": "100px",
         "140px": "140px",
+        "160px": "160px",
+        "200px": "200px",
+        "250px": "250px",
+        "280px": "280px",
         "300px": "300px",
+        "350px": "350px",
         "50vh": "50vh",
         "60vh": "60vh",
         "75vh": "75vh",
@@ -64,6 +69,9 @@ module.exports = {
           800: "#1c1b1d",
           900: "#080708",
         }
+      },
+      animation: {
+        'spin-slow':'spin 1s linear infinite reverse'
       }
     },
   },

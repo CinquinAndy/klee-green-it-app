@@ -73,3 +73,25 @@ a:focus, a:hover, button:focus, button:hover {
 .select-css-custom option {
   font-weight: normal;
 }
+
+/* ngIf animation */
+.animationIf.ng-enter,
+.animationIf.ng-leave {
+  -webkit-transition: opacity ease-in-out 1s;
+  -moz-transition: opacity ease-in-out 1s;
+  -ms-transition: opacity ease-in-out 1s;
+  -o-transition: opacity ease-in-out 1s;
+  transition: opacity ease-in-out 1s;
+}
+.animationIf.ng-enter,
+.animationIf.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+.animationIf.ng-leave,
+.animationIf.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+::-webkit-calendar-picker-indicator {
+  background-image: url(./assets/svg/calendar.svg);
+}

@@ -1,2 +1,15 @@
-<app-header></app-header>
-<app-hero [title]="('*Configurer* des valeurs de *références*') | replaceStarsForSpans" [homeTemplate]="false"></app-hero>
+<div *ngIf="loading; else configReferences">
+  <app-loader></app-loader>
+</div>
+<ng-template #configReferences>
+  <app-header></app-header>
+  <app-hero [title]="('*Configurer* des valeurs de *références*') | replaceStarsForSpans"
+            [homeTemplate]="false"
+            src="../../../../../assets/svg/settings_colored.svg"
+  ></app-hero>
+  <app-form-config-references *ngIf="referencesBeingConfigured; else configPeriods"
+                              (onFormSubmit)="onSubmitFormReferences()"></app-form-config-references>
+  <ng-template #configPeriods>
+      <app-form-config-periods></app-form-config-periods>
+  </ng-template>
+</ng-template>

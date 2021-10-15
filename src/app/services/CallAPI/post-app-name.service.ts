@@ -17,7 +17,7 @@ export class PostAppNameService {
     this.handleError = httpErrorHandler.createHandleError('PostAppNameService');
   }
 
-  /** GET heroes from the server */
+  /** GET Application from the server */
   postApplicationName(newName:string): Observable<string> {
     console.log('postApplicationName observable')
     // @ts-ignore

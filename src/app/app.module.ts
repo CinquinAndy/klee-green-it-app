@@ -25,6 +25,9 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {GetListAppService} from "./services/CallAPI/get-list-app.service";
 import {HttpErrorHandler} from "./services/http-error-handler.service";
 import {PostAppNameService} from "./services/CallAPI/post-app-name.service";
+import { FormConfigReferencesComponent } from './components/references_part/config-references/form-config-references/form-config-references.component';
+import { FormConfigPeriodsComponent } from './components/core/base/form-config-periods/form-config-periods.component';
+import { FormatDatetimelocalPipe } from './pipes/format-datetimelocal.pipe';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,10 @@ import {PostAppNameService} from "./services/CallAPI/post-app-name.service";
     ResultsMeasureComponent,
     ConfigVariationsComparisonComponent,
     ReplaceStarsForSpansPipe,
-    HeroAlternativeSelectComponent
+    HeroAlternativeSelectComponent,
+    FormConfigReferencesComponent,
+    FormConfigPeriodsComponent,
+    FormatDatetimelocalPipe
   ],
     imports: [
         BrowserModule,

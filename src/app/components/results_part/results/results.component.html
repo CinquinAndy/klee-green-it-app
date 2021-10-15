@@ -1,1 +1,10 @@
-<p>results works!</p>
+<div *ngIf="loading; else configReferences">
+  <app-loader></app-loader>
+</div>
+<ng-template #configReferences>
+  <app-header></app-header>
+  <app-hero [title]="('Les *résultats* de&nbsp;votre *application*') | replaceStarsForSpans"
+            [homeTemplate]="false"
+            src="../../../../../assets/svg/results.svg"
+  ></app-hero>
+</ng-template>
