@@ -28,6 +28,7 @@ import {PostAppNameService} from "./services/CallAPI/post-app-name.service";
 import { FormConfigReferencesComponent } from './components/references_part/config-references/form-config-references/form-config-references.component';
 import { FormConfigPeriodsComponent } from './components/core/base/form-config-periods/form-config-periods.component';
 import { FormatDatetimelocalPipe } from './pipes/format-datetimelocal.pipe';
+import { DisplayResultsComponent } from './components/results_part/results/display-results/display-results.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { FormatDatetimelocalPipe } from './pipes/format-datetimelocal.pipe';
     HeroAlternativeSelectComponent,
     FormConfigReferencesComponent,
     FormConfigPeriodsComponent,
-    FormatDatetimelocalPipe
+    FormatDatetimelocalPipe,
+    DisplayResultsComponent
   ],
     imports: [
         BrowserModule,
