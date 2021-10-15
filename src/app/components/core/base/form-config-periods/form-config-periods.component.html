@@ -1,0 +1,93 @@
+<form [formGroup]="form" id="formReference" name="formReference" class="pb-140px">
+  <fieldset>
+    <div class="pb-160px">
+      <section
+        class="w-full px-140px flex items-center flex-row-reverse">
+        <div class="w-1/2 flex flex-col">
+          <div class="w-full flex justify-end">
+            <div>
+              <!--      Min App cible -->
+              <div class="flex flex-col">
+                <label for="cible_start"
+                       class="text-klee_purple-500 uppercase text-right">DATE DE DÉBUT - APPLICATION CIBLE</label>
+                <input formControlName="cible_start"
+                       type="datetime-local"
+                       class="w-250px sm:w-350px h-60px bg-klee_gray-50 border border-klee_purple-500
+                  px-8 my-2 text-klee_grey-500 focus:ring-0 focus:outline-none"
+                       id="cible_start"
+                       name="cible_start"
+                       [max]="now"
+                />
+              </div>
+            </div>
+            <div>
+              <!--       Max date Cible -->
+              <div class="flex flex-col pl-30px">
+                <label for="cible_end"
+                       class="text-klee_purple-500 uppercase text-right">DATE DE FIN - APPLICATION CIBLE</label>
+                <input formControlName="cible_end"
+                       type="datetime-local"
+                       class="w-250px sm:w-350px h-60px bg-klee_gray-50 border border-klee_purple-500
+                  px-8 my-2 text-klee_grey-500 focus:ring-0 focus:outline-none"
+                       id="cible_end"
+                       name="cible_end"
+                       [max]="now"
+                />
+              </div>
+            </div>
+          </div>
+          <!--    Second row -->
+          <div class="w-full flex justify-end pt-30px">
+            <div>
+              <!--      Min App En cours de mesure -->
+              <div class="flex flex-col">
+                <label for="mesured_start"
+                       class="text-klee_purple-500 uppercase text-right">DATE DE DÉBUT - APPLICATION EN COURS DE
+                  MESURE</label>
+                <input formControlName="mesured_start"
+                       type="datetime-local"
+                       class="w-250px sm:w-350px h-60px bg-klee_gray-50 border border-klee_purple-500
+                  px-8 my-2 text-klee_grey-500 focus:ring-0 focus:outline-none"
+                       id="mesured_start"
+                       name="mesured_start"
+                       [min]="min_date"
+                       [max]="max_date"
+                />
+              </div>
+            </div>
+            <div>
+              <!--       Average -->
+              <div class="flex flex-col pl-30px">
+                <label for="mesured_end"
+                       class="text-klee_purple-500 uppercase text-right">DATE DE FIN - APPLICATION EN COURS DE
+                  MESURE</label>
+                <input formControlName="mesured_end"
+                       type="datetime-local"
+                       class="w-250px sm:w-350px h-60px bg-klee_gray-50 border border-klee_purple-500
+                  px-8 my-2 text-klee_grey-500 focus:ring-0 focus:outline-none"
+                       id="mesured_end"
+                       name="mesured_end"
+                       [min]="min_date"
+                       [max]="max_date"
+                />
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="w-1/2 flex justify-start">
+          <h2 class="w-full text-48px text-left">
+            <span>Sélections des</span>
+            <br>
+            <span class="font-playfair font-black">périodes</span>
+            <br>
+            <span>de mesures</span>
+          </h2>
+        </div>
+      </section>
+    </div>
+  </fieldset>
+  <div class="px-140px w-full flex justify-start">
+    <app-base-button (click)="submit()" [alternative]="true" content="Configurer les mesures"></app-base-button>
+  </div>
+</form>

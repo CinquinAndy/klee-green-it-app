@@ -10,6 +10,8 @@ export class StoreService {
   private selectedApplications: Application = {id: 0, name: ""};
   private tables: Array<Tables> = [];
   private references: Array<object> = [];
+  private dateMin: Date = new Date(Date.now());
+  private dateMax: Date = new Date(Date.now());
 
   // Define methos to add / set / get / clear data for applications
   // ******************************** Applications *******************************
@@ -69,6 +71,10 @@ export class StoreService {
         table.data = JSON.parse(JSON.stringify(data));
         // @ts-ignore
         table['unite'] = data[0]['unite'];
+        // @ts-ignore
+        table['min_date'] = data[0]['time'];
+        // @ts-ignore
+        table['max_date'] = data[data.length - 1]['time'];
         return table;
       }
     }
@@ -106,6 +112,26 @@ export class StoreService {
     this.references = [];
   }
 
+  // ******************************** Date Min / Date Max Data *******************************
+  setDateMin(date: Date): Date {
+    this.dateMin = date;
+    return date;
+  }
+
+  setDateMax(date: Date): Date {
+    this.dateMax = date;
+    return date;
+  }
+
+  getDateMin(): Date {
+    return this.dateMin
+  }
+
+  getDateMax(): Date {
+    return this.dateMax
+  }
+
   constructor() {
+
   }
 }

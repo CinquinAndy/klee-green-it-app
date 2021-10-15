@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {StoreService} from "../../../../services/Store/store.service";
 import {Tables} from "../../../../interfaces/tables";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-form-config-references',
@@ -11,22 +12,23 @@ import {Tables} from "../../../../interfaces/tables";
 export class FormConfigReferencesComponent implements OnInit {
   dataMesured: Array<Tables> = [];
   form: FormGroup;
-
+  @Output() onFormSubmit = new EventEmitter<any>();
 
   constructor(private fb: FormBuilder,
-              private store: StoreService) {
+              private store: StoreService,
+              private route: ActivatedRoute,
+              private router: Router,) {
     this.dataMesured = this.store.getTables();
-    console.log(this.dataMesured)
     let formInit = {};
     for (const data of this.dataMesured) {
       // @ts-ignore
-      formInit[data.table_name + '_minimum'] = ['', [Validators.required]];
+      formInit[data.table_name + '_minimum'] = [10, [Validators.required]];
       // @ts-ignore
-      formInit[data.table_name + '_maximum'] = ['', [Validators.required]];
+      formInit[data.table_name + '_maximum'] = [100, [Validators.required]];
       // @ts-ignore
-      formInit[data.table_name + '_average'] = ['', [Validators.required]];
+      formInit[data.table_name + '_average'] = [50, [Validators.required]];
       // @ts-ignore
-      formInit[data.table_name + '_variation'] = ['', [Validators.required]];
+      formInit[data.table_name + '_variation'] = [2, [Validators.required]];
     }
     this.form = this.fb.group(formInit);
   }
@@ -37,5 +39,7 @@ export class FormConfigReferencesComponent implements OnInit {
 
   submit() {
     this.store.setReferences(this.form.value);
+    this.onFormSubmit.emit();
+    // this.router.navigate(['/config-periods'], {relativeTo: this.route});
   }
 }

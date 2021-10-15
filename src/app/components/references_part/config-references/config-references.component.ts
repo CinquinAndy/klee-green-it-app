@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder} from "@angular/forms";
 import {GetDataFromTableService} from "../../../services/CallAPI/get-data-from-table.service";
 import {StoreService} from "../../../services/Store/store.service";
@@ -13,6 +13,8 @@ import {Tables} from "../../../interfaces/tables";
 export class ConfigReferencesComponent implements OnInit {
   tables: Array<Tables> = [];
   loading : boolean = true;
+  referencesBeingConfigured : boolean = true;
+
   constructor(private fb: FormBuilder,
               private GetListDataMesuredService: GetListDataMesuredService,
               private GetDataMesuredService: GetDataFromTableService,
@@ -22,6 +24,11 @@ export class ConfigReferencesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getListDataMesured();
+  }
+
+  onSubmitFormReferences(){
+    // We trigger this functions on submit
+    this.referencesBeingConfigured = false;
   }
 
   getListDataMesured(): void {

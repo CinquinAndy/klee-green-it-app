@@ -1,5 +1,7 @@
 export interface Tables {
   table_name:string,
   unite?:string,
-  data?:object
+  data?:object,
+  date_min?:string,
+  date_max?:string
 }

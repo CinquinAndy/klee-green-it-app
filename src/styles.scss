@@ -91,3 +91,7 @@ a:focus, a:hover, button:focus, button:hover {
 .animationIf.ng-enter.ng-enter-active {
   opacity: 1;
 }
+
+::-webkit-calendar-picker-indicator {
+  background-image: url(./assets/svg/calendar.svg);
+}
