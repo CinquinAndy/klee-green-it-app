@@ -17,10 +17,11 @@ export class FormConfigReferencesComponent implements OnInit {
   constructor(private fb: FormBuilder,
               private store: StoreService,
               private route: ActivatedRoute,
-              private router: Router,) {
+              private router: Router) {
     this.dataMesured = this.store.getTables();
     let formInit = {};
     for (const data of this.dataMesured) {
+      // todo change default value
       // @ts-ignore
       formInit[data.table_name + '_minimum'] = [10, [Validators.required]];
       // @ts-ignore
@@ -38,8 +39,9 @@ export class FormConfigReferencesComponent implements OnInit {
   }
 
   submit() {
-    this.store.setReferences(this.form.value);
-    this.onFormSubmit.emit();
-    // this.router.navigate(['/config-periods'], {relativeTo: this.route});
+    if (this.form.status === "VALID") {
+      this.store.setReferences(this.form.value);
+      this.onFormSubmit.emit();
+    }
   }
 }

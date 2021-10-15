@@ -12,6 +12,10 @@ export class StoreService {
   private references: Array<object> = [];
   private dateMin: Date = new Date(Date.now());
   private dateMax: Date = new Date(Date.now());
+  private cible_date_start: Date = new Date();
+  private cible_date_end: Date = new Date();
+  private mesured_date_start: Date = new Date();
+  private mesured_date_end: Date = new Date();
 
   // Define methos to add / set / get / clear data for applications
   // ******************************** Applications *******************************
@@ -129,6 +133,47 @@ export class StoreService {
 
   getDateMax(): Date {
     return this.dateMax
+  }
+
+  // ******************************** Date choose *******************************
+  getCible_date_start(): Date {
+    return this.cible_date_start;
+  }
+
+  getCible_date_end(): Date {
+    return this.cible_date_end;
+  }
+
+  getMesured_date_start(): Date {
+    return this.mesured_date_start;
+  }
+
+  getMesured_date_end(): Date {
+    return this.mesured_date_end;
+  }
+
+  setCible_date_start(date: Date | string): Date {
+    // if @date is a string value, then transform it the Date Object else just assign the new date
+    (typeof date === "string") ? this.cible_date_start = new Date(date) : this.cible_date_start = date;
+    return this.cible_date_start;
+  }
+
+  setCible_date_end(date: Date | string): Date {
+    // if @date is a string value, then transform it the Date Object else just assign the new date
+    (typeof date === "string") ? this.cible_date_end = new Date(date) : this.cible_date_end = date;
+    return this.cible_date_end;
+  }
+
+  setMesured_date_start(date: Date | string): Date {
+    // if @date is a string value, then transform it the Date Object else just assign the new date
+    (typeof date === "string") ? this.mesured_date_start = new Date(date) : this.mesured_date_start = date;
+    return this.mesured_date_start;
+  }
+
+  setMesured_date_end(date: Date | string): Date {
+    // if @date is a string value, then transform it the Date Object else just assign the new date
+    (typeof date === "string") ? this.mesured_date_end = new Date(date) : this.mesured_date_end = date;
+    return this.mesured_date_end;
   }
 
   constructor() {

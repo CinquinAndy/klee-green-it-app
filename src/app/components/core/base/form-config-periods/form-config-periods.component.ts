@@ -5,6 +5,7 @@ import {StoreService} from "../../../../services/Store/store.service";
 import {FilterMaxDate} from "../../../../functions/filterMaxDate";
 import {FilterMinDate} from "../../../../functions/filterMinDate";
 import {dateFormatDatetimelocal} from "../../../../functions/dateFormat-datetimelocal";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-form-config-periods',
@@ -19,7 +20,9 @@ export class FormConfigPeriodsComponent implements OnInit {
   now: string = dateFormatDatetimelocal(new Date(Date.now()));
 
   constructor(private fb: FormBuilder,
-              private store: StoreService) {
+              private store: StoreService,
+              private route: ActivatedRoute,
+              private router: Router) {
     this.tables = store.getTables()
     this.min_date = dateFormatDatetimelocal(FilterMinDate(this.tables));
     this.max_date = dateFormatDatetimelocal(FilterMaxDate(this.tables));
@@ -36,6 +39,12 @@ export class FormConfigPeriodsComponent implements OnInit {
   }
 
   submit() {
-
+    if (this.form.status === "VALID") {
+      this.store.setCible_date_start(this.form.value.cible_start)
+      this.store.setCible_date_end(this.form.value.cible_end)
+      this.store.setMesured_date_start(this.form.value.mesured_start)
+      this.store.setMesured_date_end(this.form.value.mesured_end)
+      this.router.navigate(['/results'], {relativeTo: this.route});
+    }
   }
 }

@@ -7,7 +7,7 @@
             [homeTemplate]="false"
             src="../../../../../assets/svg/settings_colored.svg"
   ></app-hero>
-  <app-form-config-references *ngIf="!referencesBeingConfigured; else configPeriods"
+  <app-form-config-references *ngIf="referencesBeingConfigured; else configPeriods"
                               (onFormSubmit)="onSubmitFormReferences()"></app-form-config-references>
   <ng-template #configPeriods>
       <app-form-config-periods></app-form-config-periods>
